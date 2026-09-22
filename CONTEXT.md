@@ -1,7 +1,6 @@
 # Your company context
 
-Welcome to HealthCore
-AI Engineering · 4Geeks Academy — Company Briefing
+HealthCore — Company Briefing
 
 HealthCore is an outpatient healthcare services company founded in 2011 in Austin, Texas. It operates a network of 12 clinics — 9 in the United States (Texas, Florida, and Georgia) and 3 in the United Kingdom (London and Manchester) — offering primary care, specialist consultations, chronic disease management, and preventive health programmes. The company employs approximately 200 people across clinical staff, operations, administration, and a growing technology unit. Annual revenue sits around 28 million dollars.
 
