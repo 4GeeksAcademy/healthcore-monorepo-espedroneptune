@@ -1,101 +1,234 @@
-# Your company context
+# CONTEXT.md — HealthCore
 
-HealthCore — Company Briefing
+## Milestone 1: Your Company's Public Website
 
-HealthCore is an outpatient healthcare services company founded in 2011 in Austin, Texas. It operates a network of 12 clinics — 9 in the United States (Texas, Florida, and Georgia) and 3 in the United Kingdom (London and Manchester) — offering primary care, specialist consultations, chronic disease management, and preventive health programmes. The company employs approximately 200 people across clinical staff, operations, administration, and a growing technology unit. Annual revenue sits around 28 million dollars.
+_Estas instrucciones están [disponibles en español](./CONTEXT-healthcore.es.md)._
 
-HealthCore was built on a simple idea: accessible, high-quality care that doesn't require patients to wait weeks for an appointment or navigate a confusing system. Same-day bookings, extended hours, and bilingual staff in US markets became the brand's signature. For most of its history, that was enough to grow steadily and earn a loyal patient base in both countries.
+> This document describes your company and the specific situation you're building this milestone for. Read it completely before writing any code. Everything you build must reflect this context.
 
-It is no longer enough.
-How the company is organised
+---
 
-HealthCore is led by Dr. Sandra Okonkwo, a physician who spent years inside large hospital systems before founding the company out of frustration with how much time clinicians spent on administration instead of patients. She is precise, evidence-driven, and deeply sceptical of technology that doesn't solve a real problem — but she has come to understand that without modern systems, HealthCore cannot manage what it has already built, let alone grow further.
+## Your company
 
-The company is organised around the following areas:
+**HealthCore** is an outpatient healthcare services company founded in 2011 in Austin, Texas. It operates a network of 12 outpatient clinics — 9 in the United States (Texas, Florida, and Georgia) and 3 in the United Kingdom (London and Manchester) — offering primary care, specialist consultations, chronic disease management, and preventive health programmes. It employs approximately 200 people and generates around 28 million dollars in annual revenue. HealthCore's competitive edge is accessibility: same-day appointments, extended hours, and bilingual staff at US locations.
 
-Clinical Operations is where the medicine happens. Dr. Marcus Reid oversees approximately 120 clinical staff — physicians, nurse practitioners, nurses, and medical assistants — across the 12 locations. Each clinic operates somewhat independently, with its own processes and its own patient records system. The US and UK clinics use different electronic health record platforms, and they do not speak to each other.
+---
 
-Patient Experience and Access manages everything that happens before and after the clinical encounter: booking appointments, reminding patients, handling follow-up, and making sure the patient has a smooth journey from first contact to discharge. Priya Nair leads this function from London, and she is acutely aware that a 22% no-show rate across the network represents both a patient failure and a significant financial loss.
+## Your department and the problem you must solve
 
-Revenue Cycle and Billing is responsible for getting paid for the care that HealthCore provides. In the US, that means navigating commercial insurance, Medicare, and Medicaid — a complex claims and reimbursement process where a 14% denial rate (more than double the industry average) is currently costing the company significant money. In the UK, billing is a mix of private pay and a small NHS contract. Tom Callahan manages both revenue streams, but without a unified view of either.
+You work in the **HealthCore Digital** team, the internal technology unit created by CEO Dr. Sandra Okonkwo to build the infrastructure the clinical and operational teams need. This milestone was assigned by **Priya Nair**, Head of Patient Experience.
 
-Compliance and Data Governance is what keeps HealthCore legally safe. Claire Whitfield manages the company's obligations under HIPAA in the US and UK GDPR in the United Kingdom — two different frameworks with different rules about how patient data can be stored, accessed, and shared. Any system that HealthCore builds or adopts must be evaluated through this lens. Claire's team is small, but her authority in the organisation is significant.
+HealthCore's current online presence is a single-page placeholder from 2019 with a phone number and no SSL certificate. Patients in Texas and Florida report that their first impression of HealthCore online makes them question whether the company is real. Meanwhile, the front desk receives unstructured patient enquiries by phone, spending an average of 20 minutes per call just to gather basic information before an appointment can even be considered. Priya needs a professional bilingual website that presents HealthCore's services and locations, and captures structured patient enquiry data so the front desk can follow up efficiently.
 
-People and Workforce handles the 200 employees across 12 locations in two countries, each with different employment law frameworks. Diane Foster manages everything from hiring — clinical roles are hard to fill and take an average of 47 days to close — to onboarding, compliance training, and tracking the continuing medical education hours that clinicians are legally required to complete to maintain their licences.
+---
 
-Technology is the team that has been tasked with making all of this work. James Osei, the CTO, leads six people in Austin. They are responsible for a patchwork of legacy systems that were each built or acquired to solve a specific problem and have never been properly integrated. Two different EHR systems. A US billing platform. A UK billing spreadsheet. A phone-based US scheduling system. A manual diary for UK bookings. No shared data layer between any of them.
+## Your stakeholder
 
-Executive Leadership centres on Dr. Okonkwo, who receives weekly reports from each department head — all formatted differently, sometimes contradictory, and always based on data that is several days old. She is managing a 28-million-dollar, two-country clinical network without being able to answer a basic question like "what is our no-show rate across the network this week?" without making phone calls.
-Where the company stands today
+**Priya Nair**, Head of Patient Experience
 
-HealthCore has built something genuinely valuable: a network of clinics that patients trust and clinical staff want to work in. But the infrastructure underneath the clinical work has not kept pace with the company's growth. The consequences range from inconvenient to serious.
+> Hi,
+>
+> We've been losing patients to competitors not because our care is worse — it's because people Google us and can't find anything credible. We need a real public website, and we need it to work in **English and Spanish**: a large part of our patient population in Austin and Miami is Spanish-speaking, and we have nothing for them right now.
+>
+> The site should have two parts. First, a landing page that presents who we are, what we offer, and where our clinics are. Second, a patient enquiry form where people can submit their information so our front desk can call them back to confirm an appointment. Right now that process happens entirely by phone with zero structure — it's costing us time and patients.
+>
+> Use the content and field specifications in this document exactly. Don't invent clinic names, phone numbers, or services — use what's here. And please make it look professional. This is our digital debut.
+>
+> — Priya
 
-Patients in the US book by phone while patients in the UK call a front desk — there is no shared online booking system. A fifth of patients do not show up to their appointments, and no proactive outreach system exists to prevent it. Clinical staff spend 35 minutes a day on documentation tasks that AI could assist with. Billing denials cost millions annually. Compliance training is tracked on a spreadsheet. Patient data flows through systems that were never designed to share information.
+---
 
-Operating in healthcare adds a layer of responsibility that does not exist in other industries. Patient data is protected by law — HIPAA in the US, UK GDPR in the UK. Every system that handles that data must meet specific legal standards. Errors are not just inefficiencies; in healthcare, they can have consequences for real patients.
+## Language scope
 
-Dr. Okonkwo has created an internal unit called HealthCore Digital to build the systems, workflows, and intelligent tools that will allow the company to operate as a modern healthcare provider — safe, efficient, and genuinely centred on the patient.
+- The website must be fully available in **English and Spanish**. This is not optional — a significant portion of HealthCore's patient population in Texas and Florida is Spanish-speaking.
+- Implement language switching using either two separate HTML files (`index.html` / `index.es.html` and `application.html` / `application.es.html`) or a single page with a toggle that swaps content via `data-lang` attributes and JavaScript.
+- All labels, error messages, placeholder text, button labels, and success messages must be fully translated. Do not leave any user-facing text in English when the page is in Spanish mode.
 
-You are part of that unit.
-The Departments and Their Problems
-🏥 Clinical Operations
+---
 
-Director: Dr. Marcus Reid (~120 clinical staff across 12 locations)
+## Landing page content
 
-Each of the 12 clinics operates with its own processes and patient records system. US clinics use one EHR platform, UK clinics use another, and they cannot communicate with each other. Clinical staff spend 35 minutes per day on documentation tasks that could be assisted by AI. When a patient moves between locations or crosses the US-UK boundary, their history does not follow them.
+Your landing page must include the following sections, in this order:
 
-What they need: A unified patient record API that surfaces data from both EHR systems, AI-assisted clinical documentation to reduce administrative time, cross-location patient history visibility, and a clinical operations dashboard showing appointment volume, patient flow, and documentation time by location.
-🗓️ Patient Experience and Access
+### Header
 
-Manager: Priya Nair (London)
+- Logo or name "HealthCore"
+- Navigation: Home | Services | Locations | Contact
+- Language toggle: EN | ES
 
-Patients in the US book appointments by phone. Patients in the UK call a front desk. There is no shared online booking system. A 22% no-show rate across the network represents both poor patient experience and significant financial loss — approximately $1.8 million annually in lost appointment slots. No proactive outreach system exists to remind patients or reschedule at-risk appointments.
+### Hero
 
-What they need: A unified online booking platform for both markets, an intelligent appointment reminder system with SMS/email/app notifications, a no-show prediction model that flags high-risk appointments for proactive contact, and a patient experience dashboard tracking booking rates, no-shows, and patient satisfaction by location.
-💰 Revenue Cycle and Billing
+- **Headline:** "Healthcare that fits your life"
+- **Subheadline:** "12 outpatient clinics across the US and UK offering same-day appointments, extended hours, and bilingual care — so you can get the attention you need, when you need it."
+- **Call to action:** Button "Request an appointment" linking to the enquiry form
 
-Manager: Tom Callahan
+### Services (3 columns)
 
-In the US, a 14% claims denial rate — more than double the industry average of 5-8% — is costing HealthCore significant revenue. Claims are submitted manually with inconsistent coding practices across locations. In the UK, billing is split between private pay and a small NHS contract, managed separately with no unified view. Tom cannot answer "what is our collection rate this month?" without making phone calls.
+1. **Primary Care & Chronic Disease**
+   - Same-day appointments with primary care physicians
+   - Ongoing management of diabetes, hypertension, and asthma
 
-What they need: An AI-assisted claims review system that flags high-risk submissions before they go out, automated coding suggestions based on clinical notes, a unified billing dashboard showing US and UK revenue streams in real time, denial pattern analysis to identify systematic issues, and automated follow-up workflows for denied or unpaid claims.
-🔒 Compliance and Data Governance
+2. **Specialist Consultations**
+   - Cardiology, endocrinology, pulmonology, and women's health
+   - Referrals coordinated within the HealthCore network
 
-Manager: Claire Whitfield
+3. **Preventive Health & Wellbeing**
+   - Screenings, vaccinations, and annual check-ups
+   - Mental health counselling and psychiatry referrals
 
-HealthCore operates under two different legal frameworks: HIPAA in the United States and UK GDPR in the United Kingdom. Every system that handles patient data must be evaluated through both lenses. Data access logs are maintained separately in each EHR system. Audit trails are incomplete. When a patient requests their data under GDPR or HIPAA, compiling it requires manual work across multiple systems.
+### Why HealthCore (2 columns)
 
-What they need: A centralised compliance monitoring dashboard showing data access patterns across both jurisdictions, automated audit trail consolidation, a patient data request automation tool that compiles records from all systems, and a compliance risk scoring system that flags potential violations before they become breaches.
-👥 People and Workforce
+- **Same-day appointments** at most locations
+- **Extended hours** — weekdays until 7pm or 8pm, Saturdays available
+- **Bilingual staff** in English and Spanish at US locations
+- **12 clinics** across Texas, Florida, Georgia, and the United Kingdom
 
-Manager: Diane Foster
+### Locations (US only — display as a table or card grid)
 
-Managing 200 employees across 12 locations in two countries, each with different employment law frameworks, creates significant overhead. Clinical roles are hard to fill and take an average of 47 days to close — nearly 20 days longer than industry benchmarks. Onboarding is manual. Continuing medical education (CME) hours, which clinicians are legally required to track to maintain their licences, are recorded on a spreadsheet.
+| Clinic name               | City        | State | Phone          | Hours                         |
+| ------------------------- | ----------- | ----- | -------------- | ----------------------------- |
+| HealthCore Austin Central | Austin      | TX    | (512) 340-8800 | Mon–Fri 7am–8pm · Sat 9am–3pm |
+| HealthCore Austin North   | Austin      | TX    | (512) 340-8810 | Mon–Fri 8am–7pm               |
+| HealthCore San Antonio    | San Antonio | TX    | (210) 720-4400 | Mon–Fri 8am–6pm · Sat 9am–1pm |
+| HealthCore Miami          | Miami       | FL    | (305) 510-7700 | Mon–Fri 7am–8pm · Sat 9am–4pm |
+| HealthCore Orlando        | Orlando     | FL    | (407) 892-6600 | Mon–Fri 8am–6pm               |
+| HealthCore Atlanta        | Atlanta     | GA    | (404) 330-9900 | Mon–Fri 8am–7pm               |
 
-What they need: An internal HR portal for holiday requests, absence management, and policy queries, an automated clinical onboarding flow with credential verification checklists, a CME tracking system with automatic expiry alerts, an HR KPI dashboard tracking time-to-hire, turnover, and absenteeism by location and role, and an HR chatbot that answers common employee questions.
-💻 Technology
+> UK clinics serve a separate market and are not included in this public-facing website.
 
-CTO: James Osei (6-person team in Austin)
+### Contact
 
-HealthCore's technology estate is a patchwork of systems acquired or built over a decade: two different EHR platforms, a US billing system, a UK billing spreadsheet, a phone-based US scheduling system, and manual diaries for UK bookings. There is no shared data layer. No telemetry. No centralised logging. When a system fails, the team finds out when a clinic calls to report it.
+- General enquiries: info@healthcore.com
+- Austin HQ: (512) 340-8800
+- Miami: (305) 510-7700
+- UK (London): +44 20 7946 0100
 
-What they need: A HealthCore central API that unifies patient, appointment, billing, and staff data across both EHR systems, real-time telemetry and monitoring from all 12 locations, a data pipeline feeding clinical, operations, and finance dashboards, automated health checks with alerts, and technical documentation indexed for semantic search.
-📊 Executive Leadership
+### Footer
 
-CEO: Dr. Sandra Okonkwo
+- © 2025 HealthCore. All rights reserved.
+- LinkedIn | Facebook | Instagram
 
-Dr. Okonkwo manages a 28-million-dollar healthcare network across two countries without a unified dashboard. Her decisions are based on weekly reports from each department head — all formatted differently, sometimes contradictory, and always several days old. She cannot answer basic operational questions like "what is our no-show rate this week?" or "which location has the highest claims denial rate this month?" without making phone calls.
+---
 
-What she needs: A unified executive dashboard with real-time KPIs from all departments (appointment volume, no-show rate, claims denial rate, revenue by location, patient satisfaction), an automatically generated weekly report delivered every Monday at 7am, threshold alerts for critical metrics, and a natural-language AI assistant she can query directly.
-Why Choose HealthCore?
+## Patient enquiry form fields
 
-Choose HealthCore if you are drawn to:
+The form (`application.html`) is a **patient enquiry form** — not a booking form. Its purpose is to collect enough structured information so the front desk can call the patient back and confirm an appointment. All field `name` attributes are specified below and must be used exactly as written.
 
-    Healthcare and regulated data — building systems that handle protected health information under HIPAA and UK GDPR, where errors have legal consequences and privacy is non-negotiable.
-    Cross-border healthcare operations — two countries, two regulatory frameworks, two EHR systems, and a unified patient experience that must work across all of it.
-    High-stakes AI applications — clinical documentation assistance, claims denial prediction, and appointment no-show forecasting are not optional enhancements; they directly impact patient care and company viability.
-    Systems that serve real patients — every dashboard, API, and automation you build exists to help people get the healthcare they need, when they need it, without unnecessary friction.
+| Field                                        | Type     | `name` attribute      | Validation                                                                                                                                          | Required    |
+| -------------------------------------------- | -------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **First name**                               | text     | `first_name`          | 2–50 characters, letters only                                                                                                                       | Yes         |
+| **Last name**                                | text     | `last_name`           | 2–50 characters, letters only                                                                                                                       | Yes         |
+| **Date of birth**                            | date     | `date_of_birth`       | Cannot be a future date · Patient cannot be older than 120 years                                                                                    | Yes         |
+| **Email address**                            | email    | `email`               | Valid email format                                                                                                                                  | Yes         |
+| **Phone number**                             | tel      | `phone`               | Must start with country code (e.g., +1 305 555 0191 or +34 612 345 678)                                                                             | Yes         |
+| **Preferred language**                       | select   | `preferred_language`  | Options: English · Spanish                                                                                                                          | Yes         |
+| **Preferred clinic**                         | select   | `preferred_clinic`    | Options must use the clinic names from the Locations table above                                                                                    | Yes         |
+| **Preferred date**                           | date     | `preferred_date`      | At least 1 business day from today · No more than 60 days ahead                                                                                     | Yes         |
+| **Preferred time of day**                    | select   | `preferred_time`      | Options: Morning (7am–12pm) · Afternoon (12pm–5pm) · Evening (5pm–8pm)                                                                              | Yes         |
+| **Service needed**                           | select   | `service_type`        | Options: Primary Care · Chronic Disease Management · Specialist Consultation · Preventive Health · Women's Health · Paediatric Care · Mental Health | Yes         |
+| **Is this your first visit to HealthCore?**  | radio    | `new_patient`         | Options: Yes · No                                                                                                                                   | Yes         |
+| **Do you have health insurance?**            | radio    | `has_insurance`       | Options: Yes · No                                                                                                                                   | Yes         |
+| **Insurance provider**                       | text     | `insurance_provider`  | Required only if `has_insurance` = Yes · Max 100 characters                                                                                         | Conditional |
+| **Member ID**                                | text     | `insurance_member_id` | Required only if `has_insurance` = Yes · 6–20 alphanumeric characters                                                                               | Conditional |
+| **Brief description of your health concern** | textarea | `health_concern`      | 20–500 characters · Live character counter                                                                                                          | Yes         |
+| **I consent to HealthCore contacting me**    | checkbox | `contact_consent`     | Must be checked to submit                                                                                                                           | Yes         |
 
-The AI challenges at HealthCore include natural language processing of clinical notes for billing code suggestions, predictive models for appointment no-shows trained on multi-location data, RAG systems over compliance documentation in two jurisdictions, and intelligent scheduling that balances patient preferences with clinic capacity. If you want to build systems where technical excellence directly translates to better healthcare delivery, HealthCore is your company.
+---
 
-Internal document — 4Geeks Academy · AI Engineering Track For exclusive use in programme project generation
+## Specific validations
+
+1. **First name / Last name:** Letters only (including accented characters: á, é, í, ó, ú, ñ, ü). No numbers or special characters.
+2. **Date of birth:** Cannot be a future date. Patient must be between 0 and 120 years old.
+3. **Phone:** Must start with `+` followed by a country code. Accept formats like `+1 305 555 0191` or `+34 612 345 678`.
+4. **Preferred date:** At least 1 business day from today. No more than 60 days in the future.
+5. **Service type + date of birth (Paediatric Care):** If the patient selects "Paediatric Care", their date of birth must indicate they are under 18. If not, show a specific error.
+6. **Preferred time + clinic hours:** If the patient selects "Evening (5pm–8pm)", only clinics open past 5pm are valid. Display a warning if the combination is unlikely to be available (e.g., San Antonio closes at 6pm, Austin North at 7pm).
+7. **Insurance fields:** If `has_insurance` = Yes, both `insurance_provider` and `insurance_member_id` become required and must be validated.
+8. **Returning patient:** If `new_patient` = No, display an additional optional field: **Patient ID** (`name="patient_id"`, format `HC-` followed by 6 alphanumeric characters, e.g., `HC-A3F291`).
+9. **Health concern:** Minimum 20 characters. Maximum 500. Show a live character counter.
+10. **Consent checkbox:** Must be checked to submit. If unchecked, the form does not submit.
+
+---
+
+## Expected error messages
+
+When a field does not pass validation, display these specific messages:
+
+- **First name:** "First name must contain only letters and be at least 2 characters"
+- **Last name:** "Last name must contain only letters and be at least 2 characters"
+- **Date of birth:** "Enter a valid date of birth. Patient must be between 0 and 120 years old"
+- **Email:** "Enter a valid email address (example: name@provider.com)"
+- **Phone:** "Phone must include a country code (example: +1 305 555 0191)"
+- **Preferred language:** "Select your preferred language"
+- **Preferred clinic:** "Select the clinic you would like to visit"
+- **Preferred date:** "Select a date at least 1 business day from today and no more than 60 days ahead"
+- **Preferred time:** "Select your preferred time of day"
+- **Service type:** "Select the type of care you are looking for"
+- **Service type (Paediatric):** "Paediatric Care is available for patients under 18. Please check the date of birth or select a different service."
+- **New patient:** "Please indicate whether this is your first visit to HealthCore"
+- **Has insurance:** "Please indicate whether you have health insurance"
+- **Insurance provider:** "Please enter your insurance provider name"
+- **Member ID:** "Member ID must be between 6 and 20 alphanumeric characters"
+- **Health concern:** "Please describe your health concern in at least 20 characters (X characters remaining)"
+- **Consent:** "You must consent to being contacted before submitting this form"
+
+---
+
+## Success message
+
+When the form validates correctly (simulate submission — do not send data anywhere), display:
+
+> **Thank you for reaching out to HealthCore.**
+>
+> We have received your enquiry. A member of our front desk team will contact you within 1 business day to confirm your appointment details and answer any questions.
+>
+> If you need urgent assistance, please call your preferred clinic directly using the numbers listed on our website.
+>
+> We look forward to caring for you.
+
+---
+
+## Specific restriction
+
+The enquiry form is designed for **patients seeking care** — not for companies or healthcare providers looking to partner with HealthCore. The form must include a visible note that reads:
+
+> "Are you a healthcare provider or organisation looking to partner with HealthCore? Contact our operations team at partnerships@healthcore.com"
+
+---
+
+## Required Schema.org markup
+
+Implement the following Schema.org structured data on your landing page:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "HealthCore",
+  "description": "Outpatient healthcare network offering primary care, specialist consultations, chronic disease management, and preventive health programmes.",
+  "url": "https://www.healthcore.com",
+  "foundingDate": "2011",
+  "logo": "https://www.healthcore.com/logo.png",
+  "availableLanguage": ["English", "Spanish"],
+  "areaServed": ["US", "GB"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Austin",
+    "addressRegion": "Texas",
+    "addressCountry": "US"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-512-340-8800",
+    "contactType": "patient services",
+    "availableLanguage": ["English", "Spanish"]
+  },
+  "sameAs": [
+    "https://linkedin.com/company/healthcore",
+    "https://facebook.com/healthcore",
+    "https://instagram.com/healthcore"
+  ]
+}
+```
+
+Additionally, include a `MedicalClinic` entry for each US location listed in the Locations table, with `name`, `telephone`, `openingHours`, and `parentOrganization` referencing HealthCore.
