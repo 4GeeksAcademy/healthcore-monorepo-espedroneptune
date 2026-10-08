@@ -33,3 +33,19 @@ This is the historical log of verified project progress. Add new dated entries a
 **Verified:** Production build passed; final static audit passed for skip targets, localized attributes, IDs, ARIA references, and non-fluid heading sizes; coral accent contrast measures 5.82:1 on the page background; public form route returned HTTP 200; editor diagnostics found no errors.
 
 **Still unverified:** Visual browser rendering and interaction testing remain blocked by Chromium font initialization in the Alpine container. See the previous entry for the remaining browser QA checklist.
+
+## 2026-10-08 — Mobile-first responsive layout
+
+**Scope:** Reversed the website layout cascade to mobile defaults, with tablet and desktop enhancements at 640px, 768px, and 960px. Narrow layouts use a stacked header, single-column content/forms, compact spacing, and full-width actions; larger breakpoints progressively add grids and the desktop navigation/sidebar.
+
+**Verified:** Multi-page production build passed; a breakpoint audit confirmed no `max-width` layout media queries remain; CSS diagnostics found no errors; both public preview pages returned HTTP 200.
+
+**Still unverified:** Device/browser visual inspection remains outstanding because Chromium cannot initialize its font manager in this container.
+
+## 2026-10-08 — Mobile hamburger navigation
+
+**Scope:** Replaced the narrow-screen horizontal link row with a collapsible hamburger menu on both pages. Added a localized appointment CTA in the menu, `aria-expanded`/`aria-controls` and translated open/close labels, Escape-to-close with focus restoration, outside-click closing, and automatic closing after navigation. Desktop navigation remains inline from 960px.
+
+**Verified:** JavaScript syntax and multi-page production build passed. DOM interaction checks passed on both pages for open/close, Spanish accessible labels, Escape behavior, and link selection; both public routes returned HTTP 200; editor diagnostics found no errors.
+
+**Still unverified:** Actual visual rendering, touch behavior, and responsive layout inspection in a browser remain pending because Chromium cannot initialize in this container.

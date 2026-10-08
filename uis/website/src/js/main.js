@@ -2,7 +2,7 @@ import "../css/input.css";
 
 const translations = {
   en: {
-    skip_to_content: "Skip to content", brand_name: "HealthCore", brand_home: "HealthCore home", nav_label: "Primary navigation", language_group: "Choose language", social_label: "Social media", application_form_label: "Patient enquiry form", additional_info_label: "Additional information", hero_image_alt: "Clinician speaking with a patient during a consultation",
+    skip_to_content: "Skip to content", menu_open: "Open menu", menu_close: "Close menu", brand_name: "HealthCore", brand_home: "HealthCore home", nav_label: "Primary navigation", language_group: "Choose language", social_label: "Social media", application_form_label: "Patient enquiry form", additional_info_label: "Additional information", hero_image_alt: "Clinician speaking with a patient during a consultation",
     landing_description: "Accessible outpatient healthcare across HealthCore clinics in the US and UK. Same-day appointments, extended hours, and bilingual care.", application_description: "Send a patient enquiry to HealthCore. Our front desk team will follow up to confirm your appointment details.",
     nav_home: "Home", nav_services: "Services", nav_locations: "Locations", nav_contact: "Contact",
     header_cta: "Request an appointment", hero_eyebrow: "Care, on your terms", hero_title: "Healthcare that fits your life",
@@ -32,7 +32,7 @@ const translations = {
     error_date_of_birth: "Enter a valid date of birth. Patient must be between 0 and 120 years old", error_email: "Enter a valid email address (example: name@provider.com)", error_phone: "Phone must include a country code (example: +1 305 555 0191)", error_preferred_language: "Select your preferred language", error_preferred_clinic: "Select the clinic you would like to visit", error_preferred_date: "Select a date at least 1 business day from today and no more than 60 days ahead", error_preferred_time: "Select your preferred time of day", error_service_type: "Select the type of care you are looking for", error_paediatric: "Paediatric Care is available for patients under 18. Please check the date of birth or select a different service.", error_new_patient: "Please indicate whether this is your first visit to HealthCore", error_has_insurance: "Please indicate whether you have health insurance", error_insurance_provider: "Please enter your insurance provider name", error_provider_length: "Insurance provider name must be 100 characters or fewer", error_member_id: "Member ID must be between 6 and 20 alphanumeric characters", error_patient_id: "Patient ID must start with HC- followed by 6 letters or numbers", error_concern_short: "Please describe your health concern in at least 20 characters ({count} characters remaining)", error_concern_long: "Please limit your health concern to 500 characters", error_consent: "You must consent to being contacted before submitting this form", error_summary: "Please review the highlighted fields and try again.", warning_hours: "This clinic closes before 8pm. An evening appointment may not be available; our team will confirm by phone."
   },
   es: {
-    skip_to_content: "Saltar al contenido", brand_name: "HealthCore", brand_home: "Inicio de HealthCore", nav_label: "Navegación principal", language_group: "Elegir idioma", social_label: "Redes sociales", application_form_label: "Formulario de consulta para pacientes", additional_info_label: "Información adicional", hero_image_alt: "Profesional de salud conversando con un paciente durante una consulta",
+    skip_to_content: "Saltar al contenido", menu_open: "Abrir menú", menu_close: "Cerrar menú", brand_name: "HealthCore", brand_home: "Inicio de HealthCore", nav_label: "Navegación principal", language_group: "Elegir idioma", social_label: "Redes sociales", application_form_label: "Formulario de consulta para pacientes", additional_info_label: "Información adicional", hero_image_alt: "Profesional de salud conversando con un paciente durante una consulta",
     landing_description: "Atención médica ambulatoria accesible en las clínicas HealthCore de EE. UU. y el Reino Unido. Citas el mismo día, horarios extendidos y atención bilingüe.", application_description: "Envía una consulta de paciente a HealthCore. Nuestro equipo de recepción se comunicará contigo para confirmar los detalles de tu cita.",
     nav_home: "Inicio", nav_services: "Servicios", nav_locations: "Ubicaciones", nav_contact: "Contacto",
     header_cta: "Solicitar una cita", hero_eyebrow: "Atención a tu manera", hero_title: "Atención médica que se adapta a tu vida",
@@ -102,6 +102,8 @@ function applyLocale(locale) {
   document.querySelectorAll("[data-locale-target]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.localeTarget === currentLocale));
   });
+  const menuToggle = document.querySelector(".menu-toggle");
+  if (menuToggle) menuToggle.setAttribute("aria-label", t(menuToggle.getAttribute("aria-expanded") === "true" ? "menu_close" : "menu_open"));
   document.title = location.pathname.endsWith("application.html")
     ? `${t("form_title")} | HealthCore`
     : `${t("brand_name")} | ${t("hero_title")}`;
@@ -115,6 +117,35 @@ document.querySelectorAll("[data-locale-target]").forEach((button) => {
 });
 
 applyLocale(currentLocale);
+
+const menuToggle = document.querySelector(".menu-toggle");
+const primaryNavigation = document.querySelector("#primary-navigation");
+if (menuToggle && primaryNavigation) {
+  function setMenuOpen(open) {
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", t(open ? "menu_close" : "menu_open"));
+    primaryNavigation.classList.toggle("is-open", open);
+  }
+
+  menuToggle.addEventListener("click", () => {
+    setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+  });
+  primaryNavigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setMenuOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (menuToggle.getAttribute("aria-expanded") === "true" && !event.target.closest(".site-header")) setMenuOpen(false);
+  });
+  window.matchMedia("(min-width: 960px)").addEventListener("change", (event) => {
+    if (event.matches) setMenuOpen(false);
+  });
+}
 
 const sectionLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
 if (sectionLinks.length && "IntersectionObserver" in window) {
