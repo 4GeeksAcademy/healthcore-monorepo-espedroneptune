@@ -13,3 +13,23 @@ This is the historical log of verified project progress. Add new dated entries a
 **Completed:** Added `AGENTS.md`, `.agent/memory-bank-rules.md`, this progress log, `project-structure.md`, and the lessons index.
 
 **Next:** Confirm the first implementation milestone and intended owning area, then record its scope and acceptance checks before implementation.
+
+## 2026-10-08 — HealthCore public website implemented
+
+**Status:** The bilingual static website and patient enquiry form are implemented. Build, static markup/schema audit, JavaScript syntax, and public route checks passed. Full browser interaction and responsive visual testing remain unverified.
+
+**Scope:** Added the standalone Vite/Tailwind app under `uis/website/`, with the English/Spanish landing page and enquiry form, localized copy and accessible labels, client-side validation, conditional fields, consent, warning/counter/success states, Schema.org organization and six clinic records, and Codespaces run instructions. Form values are not sent to a backend; successful simulation clears entered controls.
+
+**Verified:** `npm install` completed with 0 reported vulnerabilities; `npm run build` emitted both `index.html` and `application.html`; `node --check` passed for both JavaScript modules; static audit passed for form names, translated attributes, label/ARIA references, and JSON-LD properties/entities; editor diagnostics found no errors. Vite served the app and both externally forwarded public routes returned HTTP 200 at `https://silver-space-giggle-vg4wwq75w4wf6xrx-5173.app.github.dev/` and `/application.html`.
+
+**Not verified:** A system browser is unavailable. Playwright's downloaded Ubuntu Chromium could not run on Alpine, and the native Alpine Chromium aborted in its font manager before rendering. Therefore form interactions, keyboard/screen-reader behavior, responsive visual layout, browser console, and network/storage behavior still need browser testing.
+
+**Next:** Exercise the public preview in a browser across both languages and desktop/mobile sizes; test every form validation, conditional, reset, and success case; inspect network and storage to confirm no patient data leaves the page. Review Spanish copy and supplied canonical/logo/social URLs before production publication.
+
+## 2026-10-08 — UX polish pass
+
+**Scope:** Added localized skip links and main-content focus targets; refined sticky navigation, anchor offsets, active-section indication, fixed responsive type steps, control focus/disabled states, and surface colors; removed duplicate font loading.
+
+**Verified:** Production build passed; final static audit passed for skip targets, localized attributes, IDs, ARIA references, and non-fluid heading sizes; coral accent contrast measures 5.82:1 on the page background; public form route returned HTTP 200; editor diagnostics found no errors.
+
+**Still unverified:** Visual browser rendering and interaction testing remain blocked by Chromium font initialization in the Alpine container. See the previous entry for the remaining browser QA checklist.

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Send a patient enquiry to HealthCore. Our front desk team will follow up to confirm your appointment details." data-i18n-meta="application_description" />
+    <link rel="canonical" href="https://www.healthcore.com/application.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <title>Patient Enquiry | HealthCore</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content" data-i18n="skip_to_content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner shell mx-auto w-[calc(100%-2rem)] max-w-[1200px]">
+        <a class="brand" href="index.html" aria-label="HealthCore home" data-i18n-aria="brand_home"><span class="brand__mark" aria-hidden="true">H</span><span>HealthCore</span></a>
+        <nav class="site-nav" aria-label="Primary navigation" data-i18n-aria="nav_label">
+          <a href="index.html#home" data-i18n="nav_home">Home</a>
+          <a href="index.html#services" data-i18n="nav_services">Services</a>
+          <a href="index.html#locations" data-i18n="nav_locations">Locations</a>
+          <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <div class="language-switch" role="group" aria-label="Choose language" data-i18n-aria="language_group">
+            <button type="button" data-locale-target="en" aria-pressed="true">EN</button>
+            <button type="button" data-locale-target="es" aria-pressed="false">ES</button>
+          </div>
+          <a class="button button--small button--outline inline-flex items-center justify-center rounded-md font-bold transition-colors" href="index.html" data-i18n="form_back_home">Back to home</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="application-main" id="main-content" tabindex="-1">
+      <section class="application-intro shell mx-auto w-[calc(100%-2rem)] max-w-[1200px]" aria-labelledby="application-title">
+        <a class="back-link" href="index.html"><span aria-hidden="true">←</span><span data-i18n="form_back_home">Back to home</span></a>
+        <p class="eyebrow" data-i18n="form_eyebrow">Patient enquiry</p>
+        <h1 id="application-title" data-i18n="form_title">Request an appointment</h1>
+        <p class="application-intro__copy" data-i18n="form_intro">Tell us a little about yourself and the care you need. A member of our front desk team will contact you to confirm your appointment details.</p>
+        <p class="required-note"><span aria-hidden="true">*</span> <span data-i18n="required_note">Required fields</span></p>
+      </section>
+
+      <section class="form-section shell mx-auto w-[calc(100%-2rem)] max-w-[1200px]" aria-label="Patient enquiry form" data-i18n-aria="application_form_label">
+        <div class="form-layout">
+          <form id="patient-enquiry-form" novalidate>
+            <div class="form-error-summary" id="form-error-summary" role="alert" aria-live="assertive" tabindex="-1" hidden></div>
+
+            <fieldset class="form-group">
+              <legend data-i18n="group_personal">About you</legend>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="first-name"><span data-i18n="label_first_name">First name</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="first-name" name="first_name" type="text" autocomplete="given-name" minlength="2" maxlength="50" required aria-describedby="first-name-hint first-name-error" />
+                  <p class="field-hint" id="first-name-hint" data-i18n="hint_name">Use letters only, including accented letters.</p>
+                  <p class="field-error" id="first-name-error" data-error-for="first_name" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="last-name"><span data-i18n="label_last_name">Last name</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="last-name" name="last_name" type="text" autocomplete="family-name" minlength="2" maxlength="50" required aria-describedby="last-name-hint last-name-error" />
+                  <p class="field-hint" id="last-name-hint" data-i18n="hint_name">Use letters only, including accented letters.</p>
+                  <p class="field-error" id="last-name-error" data-error-for="last_name" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="date-of-birth"><span data-i18n="label_dob">Date of birth</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="date-of-birth" name="date_of_birth" type="date" required aria-describedby="dob-error" />
+                  <p class="field-error" id="dob-error" data-error-for="date_of_birth" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="email"><span data-i18n="label_email">Email address</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="email-error" />
+                  <p class="field-error" id="email-error" data-error-for="email" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="phone"><span data-i18n="label_phone">Phone number</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="phone-hint phone-error" />
+                  <p class="field-hint" id="phone-hint" data-i18n="hint_phone">Include + and your country code, for example +1 305 555 0191.</p>
+                  <p class="field-error" id="phone-error" data-error-for="phone" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="preferred-language"><span data-i18n="label_language">Preferred language</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="preferred-language" name="preferred_language" required aria-describedby="preferred-language-error">
+                    <option value="" data-i18n="option_select_language">Select a language</option>
+                    <option value="English" data-i18n="option_english">English</option>
+                    <option value="Spanish" data-i18n="option_spanish">Spanish</option>
+                  </select>
+                  <p class="field-error" id="preferred-language-error" data-error-for="preferred_language" aria-live="polite"></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <legend data-i18n="group_preferences">Your care preferences</legend>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="preferred-clinic"><span data-i18n="label_clinic">Preferred clinic</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="preferred-clinic" name="preferred_clinic" required aria-describedby="preferred-clinic-error">
+                    <option value="" data-i18n="option_select_clinic">Select a clinic</option>
+                    <option>HealthCore Austin Central</option>
+                    <option>HealthCore Austin North</option>
+                    <option>HealthCore San Antonio</option>
+                    <option>HealthCore Miami</option>
+                    <option>HealthCore Orlando</option>
+                    <option>HealthCore Atlanta</option>
+                  </select>
+                  <p class="field-error" id="preferred-clinic-error" data-error-for="preferred_clinic" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="preferred-date"><span data-i18n="label_date">Preferred date</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="preferred-date" name="preferred_date" type="date" required aria-describedby="date-hint preferred-date-error" />
+                  <p class="field-hint" id="date-hint" data-i18n="hint_date">Choose a date at least one business day from today, within the next 60 days.</p>
+                  <p class="field-error" id="preferred-date-error" data-error-for="preferred_date" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="preferred-time"><span data-i18n="label_time">Preferred time of day</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="preferred-time" name="preferred_time" required aria-describedby="preferred-time-error">
+                    <option value="" data-i18n="option_select_time">Select a time of day</option>
+                    <option value="morning" data-i18n="time_morning">Morning (7am–12pm)</option>
+                    <option value="afternoon" data-i18n="time_afternoon">Afternoon (12pm–5pm)</option>
+                    <option value="evening" data-i18n="time_evening">Evening (5pm–8pm)</option>
+                  </select>
+                  <p class="field-error" id="preferred-time-error" data-error-for="preferred_time" aria-live="polite"></p>
+                  <p class="field-warning" id="hours-warning" role="status" aria-live="polite" hidden></p>
+                </div>
+                <div class="field">
+                  <label for="service-type"><span data-i18n="label_service">Service needed</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="service-type" name="service_type" required aria-describedby="service-type-error">
+                    <option value="" data-i18n="option_select_service">Select a type of care</option>
+                    <option value="Primary Care" data-i18n="service_opt_primary">Primary Care</option>
+                    <option value="Chronic Disease Management" data-i18n="service_opt_chronic">Chronic Disease Management</option>
+                    <option value="Specialist Consultation" data-i18n="service_opt_specialist">Specialist Consultation</option>
+                    <option value="Preventive Health" data-i18n="service_opt_preventive">Preventive Health</option>
+                    <option value="Women's Health" data-i18n="service_opt_womens">Women's Health</option>
+                    <option value="Paediatric Care" data-i18n="service_opt_paediatric">Paediatric Care</option>
+                    <option value="Mental Health" data-i18n="service_opt_mental">Mental Health</option>
+                  </select>
+                  <p class="field-error" id="service-type-error" data-error-for="service_type" aria-live="polite"></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <legend data-i18n="group_visit">Visit details</legend>
+              <div class="form-grid">
+                <fieldset class="field field--choice" aria-describedby="new-patient-error">
+                  <legend><span data-i18n="label_new_patient">Is this your first visit to HealthCore?</span> <span class="required-mark" aria-hidden="true">*</span></legend>
+                  <div class="choice-row">
+                    <label class="choice"><input type="radio" name="new_patient" value="yes" required /><span data-i18n="option_yes">Yes</span></label>
+                    <label class="choice"><input type="radio" name="new_patient" value="no" required /><span data-i18n="option_no">No</span></label>
+                  </div>
+                  <p class="field-error" id="new-patient-error" data-error-for="new_patient" aria-live="polite"></p>
+                </fieldset>
+                <div class="field field--conditional" id="patient-id-group" hidden>
+                  <label for="patient-id"><span data-i18n="label_patient_id">Patient ID (optional)</span></label>
+                  <input id="patient-id" name="patient_id" type="text" autocomplete="off" maxlength="9" disabled aria-describedby="patient-id-hint patient-id-error" />
+                  <p class="field-hint" id="patient-id-hint" data-i18n="hint_patient_id">Format: HC- followed by 6 letters or numbers.</p>
+                  <p class="field-error" id="patient-id-error" data-error-for="patient_id" aria-live="polite"></p>
+                </div>
+                <fieldset class="field field--choice" aria-describedby="has-insurance-error">
+                  <legend><span data-i18n="label_insurance">Do you have health insurance?</span> <span class="required-mark" aria-hidden="true">*</span></legend>
+                  <div class="choice-row">
+                    <label class="choice"><input type="radio" name="has_insurance" value="yes" required /><span data-i18n="option_yes">Yes</span></label>
+                    <label class="choice"><input type="radio" name="has_insurance" value="no" required /><span data-i18n="option_no">No</span></label>
+                  </div>
+                  <p class="field-error" id="has-insurance-error" data-error-for="has_insurance" aria-live="polite"></p>
+                </fieldset>
+                <div class="field field--conditional" id="insurance-provider-group" hidden>
+                  <label for="insurance-provider"><span data-i18n="label_insurance_provider">Insurance provider</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="insurance-provider" name="insurance_provider" type="text" maxlength="100" disabled aria-describedby="insurance-provider-error" />
+                  <p class="field-error" id="insurance-provider-error" data-error-for="insurance_provider" aria-live="polite"></p>
+                </div>
+                <div class="field field--conditional" id="insurance-member-group" hidden>
+                  <label for="insurance-member-id"><span data-i18n="label_member_id">Member ID</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="insurance-member-id" name="insurance_member_id" type="text" minlength="6" maxlength="20" autocomplete="off" disabled aria-describedby="member-id-hint insurance-member-id-error" />
+                  <p class="field-hint" id="member-id-hint" data-i18n="hint_member_id">Use 6–20 letters or numbers.</p>
+                  <p class="field-error" id="insurance-member-id-error" data-error-for="insurance_member_id" aria-live="polite"></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <legend data-i18n="group_concern">A little more about your care</legend>
+              <div class="field">
+                <label for="health-concern"><span data-i18n="label_concern">Brief description of your health concern</span> <span class="required-mark" aria-hidden="true">*</span></label>
+                <textarea id="health-concern" name="health_concern" rows="5" minlength="20" maxlength="500" required aria-describedby="concern-hint concern-count health-concern-error"></textarea>
+                <div class="counter-line"><p class="field-hint" id="concern-hint" data-i18n="hint_concern">Please do not include information you do not want shared with the front desk.</p><p class="character-count" id="concern-count" aria-live="polite">500 characters remaining</p></div>
+                <p class="field-error" id="health-concern-error" data-error-for="health_concern" aria-live="polite"></p>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group form-group--consent">
+              <legend data-i18n="group_contact">Contact permission</legend>
+              <div class="field">
+                <label class="choice choice--consent" for="contact-consent">
+                  <input id="contact-consent" name="contact_consent" type="checkbox" required aria-describedby="contact-consent-error" />
+                  <span><span data-i18n="label_consent">I consent to HealthCore contacting me</span> <span class="required-mark" aria-hidden="true">*</span></span>
+                </label>
+                <p class="field-error" id="contact-consent-error" data-error-for="contact_consent" aria-live="polite"></p>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <button class="button button--primary inline-flex min-h-12 items-center justify-center gap-3 rounded-md px-5 py-3 font-bold transition-colors" type="submit" disabled><span data-i18n="submit_button">Submit enquiry</span><span aria-hidden="true">↗</span></button>
+              <button class="button button--clear" type="reset"><span aria-hidden="true">↺</span><span data-i18n="clear_button">Clear form</span></button>
+            </div>
+            <p class="form-privacy" data-i18n="privacy_note">This demo form does not send or store your information.</p>
+          </form>
+
+          <aside class="form-aside" aria-label="Additional information" data-i18n-aria="additional_info_label">
+            <div class="aside-block">
+              <p class="eyebrow" data-i18n="aside_urgent_eyebrow">Need urgent assistance?</p>
+              <h2 data-i18n="aside_urgent_title">Call your clinic directly.</h2>
+              <p data-i18n="aside_urgent_body">For urgent assistance, please call your preferred clinic using the numbers listed on our website.</p>
+              <a href="index.html#locations" data-i18n="aside_locations_link">View clinic locations <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="aside-partnership">
+              <p data-i18n="partnership_note">Are you a healthcare provider or organisation looking to partner with HealthCore? Contact our operations team at</p>
+              <a href="mailto:partnerships@healthcore.com">partnerships@healthcore.com</a>
+            </div>
+          </aside>
+        </div>
+        <section class="success-panel" id="success-panel" tabindex="-1" role="status" aria-live="polite" aria-labelledby="success-title" hidden>
+          <span class="success-mark" aria-hidden="true">✓</span>
+          <h2 id="success-title" data-i18n="success_title">Thank you for reaching out to HealthCore.</h2>
+          <p data-i18n="success_received">We have received your enquiry. A member of our front desk team will contact you within 1 business day to confirm your appointment details and answer any questions.</p>
+          <p data-i18n="success_urgent">If you need urgent assistance, please call your preferred clinic directly using the numbers listed on our website.</p>
+          <p data-i18n="success_close">We look forward to caring for you.</p>
+          <a class="button button--outline inline-flex min-h-12 items-center justify-center rounded-md px-5 py-3 font-bold transition-colors" href="index.html" data-i18n="success_home">Return to HealthCore</a>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner shell mx-auto w-[calc(100%-2rem)] max-w-[1200px]">
+        <a class="brand brand--footer" href="index.html"><span class="brand__mark" aria-hidden="true">H</span><span>HealthCore</span></a>
+        <p data-i18n="copyright">© 2025 HealthCore. All rights reserved.</p>
+        <a href="mailto:info@healthcore.com">info@healthcore.com</a>
+      </div>
+    </footer>
+    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/validation.js"></script>
+  </body>
+</html>
