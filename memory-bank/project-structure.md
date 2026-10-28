@@ -27,8 +27,9 @@ Navigational index for the HealthCore monorepo. Read the README in a project are
 | [`services/`](../services/) | Backend APIs and background services |
 | [`shared/`](../shared/) | Reusable assets that are not standalone packages |
 | [`skills/`](../skills/) | Reusable agent capabilities, instructions, scripts, and resources |
-| [`uis/`](../uis/) | User-facing applications; public site: [`uis/website/README.md`](../uis/website/README.md) |
+| [`uis/`](../uis/) | User-facing applications; public site: [`uis/website/README.md`](../uis/website/README.md); operations dashboard: [`uis/backoffice/README.md`](../uis/backoffice/README.md) |
 | [`workflows/`](../workflows/) | Automation and cross-system orchestration |
+| [`src/types.ts`](../src/types.ts) | Milestone 2 TypeScript domain models; related utility modules are in `src/utils/` |
 
 ## Memory bank
 

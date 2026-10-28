@@ -49,3 +49,33 @@ This is the historical log of verified project progress. Add new dated entries a
 **Verified:** JavaScript syntax and multi-page production build passed. DOM interaction checks passed on both pages for open/close, Spanish accessible labels, Escape behavior, and link selection; both public routes returned HTTP 200; editor diagnostics found no errors.
 
 **Still unverified:** Actual visual rendering, touch behavior, and responsive layout inspection in a browser remain pending because Chromium cannot initialize in this container.
+
+## 2026-10-28 — Milestone 2 TypeScript utilities
+
+**Scope:** Added root `src/types.ts` and the four requested utility modules for collections, search, transformations, and validation. Implemented the 22 functions named in `CONTEXT_milestone2.md`; sorting returns copies, no-show rates use completed plus no-show appointments, the cost window includes its ending date and preceding six days, and date-sensitive validation accepts optional `asOfDate` inputs.
+
+**Branch state:** The context briefing is present on `feature/milestone2` and absent from the local `main` tree. It was added by commit `d562638` on the feature branch, so no deletion commit on `main` was needed. No push or commit was made during implementation.
+
+**Verified:** Editor diagnostics report no errors in the five new TypeScript files. The worktree is on `feature/milestone2` and the new implementation is under `src/`.
+
+**Not verified:** No runtime tests or TypeScript command-line compile were run because Node.js and `tsc` are unavailable in the container. `git diff --check` does not inspect the new untracked files.
+
+**Next:** Run a focused TypeScript compile and behavior checks in an environment with TypeScript/Node available, especially around CME cycle boundaries and date validation.
+
+## 2026-10-28 — Operations dashboard UI
+
+**Scope:** Added `uis/backoffice/`, a separate internal dashboard that imports the Milestone 2 TypeScript functions and uses the briefing's sample claims, appointments, locations, and clinicians. It includes overview metrics and alerts, filterable claims, no-show cost/rate controls, CME reporting, and validation summaries. Updated the `uis/` guide and added run/build documentation.
+
+**Verified:** Editor diagnostics report no errors in the new HTML, JavaScript, CSS, Vite config, and package manifest.
+
+**Not verified:** Build, runtime interactions, and responsive browser screenshots could not be checked because Node.js and package managers are unavailable in the container.
+
+**Next:** From `uis/backoffice/`, run `npm install` and `npm run dev`, then verify the dashboard in desktop and mobile browsers.
+
+## 2026-10-28 — Milestone 2 verification follow-up
+
+**Verified:** The operations dashboard production build passes after installing its declared dependencies. A strict TypeScript compile passes for `src/types.ts` and all utility modules. Fixed-date assertions pass for the final and first days around a CME cycle boundary, claim submission dates, and clinician licence expiry.
+
+**Still unverified:** Dashboard browser interactions and responsive visual inspection remain outstanding.
+
+**Next:** Run the dashboard locally and inspect it in desktop and mobile browsers, including its filters and controls.
