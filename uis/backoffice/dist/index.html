@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f5f1" />
+    <meta name="description" content="HealthCore internal operations dashboard for billing, appointments, and CME compliance." />
+    <title>Operations | HealthCore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/assets/index-oFkhTmQg.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BccRlHT1.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="HealthCore operations">
+        <a class="brand" href="#overview" aria-label="HealthCore operations home">
+          <span class="brand-mark" aria-hidden="true">HC</span>
+          <span class="brand-copy"><strong>HealthCore</strong><small>OPERATIONS</small></span>
+        </a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+        <nav class="view-nav" role="tablist" aria-label="Operations views">
+          <button id="tab-overview" class="view-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="view-overview" data-view="overview"><span class="nav-index">01</span>Overview</button>
+          <button id="tab-claims" class="view-tab" type="button" role="tab" aria-selected="false" aria-controls="view-claims" data-view="claims"><span class="nav-index">02</span>Claims</button>
+          <button id="tab-attendance" class="view-tab" type="button" role="tab" aria-selected="false" aria-controls="view-attendance" data-view="attendance"><span class="nav-index">03</span>No-shows</button>
+          <button id="tab-cme" class="view-tab" type="button" role="tab" aria-selected="false" aria-controls="view-cme" data-view="cme"><span class="nav-index">04</span>CME</button>
+        </nav>
+
+        <div class="sidebar-foot">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Sample workspace</span>
+          <span class="env-tag">LOCAL</span>
+        </div>
+      </aside>
+
+      <main id="main-content" class="main-content">
+        <header class="topbar">
+          <div class="crumb"><span>HealthCore Digital</span><span class="crumb-slash">/</span><strong>Operations</strong></div>
+          <div class="topbar-right"><span class="sample-label"><span class="sample-dot" aria-hidden="true"></span>Sample records</span><span class="topbar-date">REPORT 01 <span>·</span> US + UK</span></div>
+        </header>
+
+        <section class="page-heading" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow" id="heading-kicker">MONDAY OPERATIONS REPORT <span>—</span> 15 MAR 2025</p>
+            <h1 id="page-title">Operations overview</h1>
+            <p class="page-subtitle" id="page-subtitle">A working view of billing performance, missed visits, and clinician compliance.</p>
+          </div>
+          <div class="date-control">
+            <label for="as-of-date">Report date</label>
+            <input id="as-of-date" type="date" value="2025-03-15" />
+          </div>
+        </section>
+
+        <section class="metric-grid" aria-label="Key operational measures">
+          <article class="metric metric-ink">
+            <div class="metric-top"><span>CLAIM DENIAL RATE</span><span class="metric-mark mark-coral" aria-hidden="true"></span></div>
+            <div class="metric-value" id="metric-denial">—</div>
+            <div class="metric-bottom"><span id="metric-denial-detail">—</span><span class="benchmark">8% benchmark</span></div>
+          </article>
+          <article class="metric metric-ink">
+            <div class="metric-top"><span>NO-SHOW COST · 7 DAYS</span><span class="metric-mark mark-gold" aria-hidden="true"></span></div>
+            <div class="metric-value" id="metric-cost">—</div>
+            <div class="metric-bottom"><span id="metric-cost-detail">—</span><span class="benchmark">estimated USD</span></div>
+          </article>
+          <article class="metric metric-accent">
+            <div class="metric-top"><span>CME COMPLETE</span><span class="metric-mark mark-deep" aria-hidden="true"></span></div>
+            <div class="metric-value" id="metric-cme">—</div>
+            <div class="metric-bottom"><span id="metric-cme-detail">—</span><span class="benchmark">current cycle</span></div>
+          </article>
+        </section>
+
+        <div id="live-message" class="sr-only" aria-live="polite"></div>
+
+        <section id="view-overview" class="view-panel" role="tabpanel" aria-labelledby="tab-overview">
+          <div class="overview-grid">
+            <section class="report-section">
+              <div class="section-heading">
+                <div><p class="section-kicker">REVENUE CYCLE</p><h2>Denials by payer</h2></div>
+                <span class="unit-note">% OF CLAIMS</span>
+              </div>
+              <div id="overview-payer-bars" class="bar-list"></div>
+              <div id="overview-payer-flags" class="section-footnote"></div>
+            </section>
+            <section class="report-section">
+              <div class="section-heading">
+                <div><p class="section-kicker">PATIENT ACCESS</p><h2>No-show rate by clinic</h2></div>
+                <span class="unit-note">20% ALERT</span>
+              </div>
+              <div id="overview-location-bars" class="bar-list"></div>
+              <div id="overview-location-flags" class="section-footnote"></div>
+            </section>
+          </div>
+          <div class="overview-lower">
+            <section class="report-section attention-section">
+              <div class="section-heading"><div><p class="section-kicker">FOLLOW-UP</p><h2>Needs attention</h2></div></div>
+              <div id="attention-list" class="attention-list"></div>
+            </section>
+            <section class="report-section quality-section">
+              <div class="section-heading"><div><p class="section-kicker">INPUT CHECKS</p><h2>Sample data quality</h2></div><span class="quality-seal" aria-hidden="true">✓</span></div>
+              <p id="quality-summary" class="quality-summary"></p>
+              <div id="quality-detail" class="quality-detail"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="view-claims" class="view-panel" role="tabpanel" aria-labelledby="tab-claims" hidden>
+          <section class="report-section full-section">
+            <div class="section-heading section-heading-wrap">
+              <div><p class="section-kicker">BILLING · CLAIMS</p><h2>Claim register</h2></div>
+              <span class="unit-note" id="claims-count">—</span>
+            </div>
+            <div class="filter-row">
+              <label class="field-control">Clinic<select id="claim-location"><option value="">All clinics</option></select></label>
+              <label class="field-control">Status<select id="claim-status"><option value="">All statuses</option><option>submitted</option><option>approved</option><option>denied</option><option>pending</option><option>appealed</option></select></label>
+              <label class="field-control search-control">Find claim<input id="claim-search" type="search" placeholder="CLM-000001" autocomplete="off" /></label>
+              <label class="field-control">Sort<select id="claim-sort"><option value="asc">ID ascending</option><option value="desc">ID descending</option></select></label>
+            </div>
+            <p id="claim-search-note" class="search-note" aria-live="polite"></p>
+            <div class="table-scroll"><table><thead><tr><th>Claim ID</th><th>Payer</th><th>Clinic</th><th>Service</th><th>Amount</th><th>Status</th><th>Denial reason</th></tr></thead><tbody id="claims-body"></tbody></table></div>
+            <div class="group-summary"><span class="section-kicker">VISIBLE CLAIMS BY PAYER</span><div id="claim-groups"></div></div>
+          </section>
+        </section>
+
+        <section id="view-attendance" class="view-panel" role="tabpanel" aria-labelledby="tab-attendance" hidden>
+          <section class="report-section full-section">
+            <div class="section-heading section-heading-wrap">
+              <div><p class="section-kicker">PATIENT ACCESS · APPOINTMENTS</p><h2>No-show impact</h2></div>
+              <div class="filter-row compact-filters">
+                <label class="field-control">Week ending<input id="week-ending" type="date" value="2025-03-16" /></label>
+                <label class="field-control">Clinic<select id="appointment-location"><option value="">All clinics</option></select></label>
+                <label class="field-control">Show<select id="appointment-status"><option value="all">All appointments</option><option value="no_show">No-shows</option><option value="completed">Completed</option></select></label>
+              </div>
+            </div>
+            <div class="attendance-summary">
+              <div><span class="section-kicker">ESTIMATED LOST REVENUE</span><strong id="attendance-cost">—</strong><span id="attendance-cost-caption">—</span></div>
+              <div><span class="section-kicker">NO-SHOW RATE</span><strong id="attendance-rate">—</strong><span id="attendance-rate-caption">—</span></div>
+              <div><span class="section-kicker">ALERT LEVEL</span><strong id="attendance-alert">—</strong><span id="attendance-alert-caption">20% location threshold</span></div>
+            </div>
+            <div class="table-scroll"><table><thead><tr><th>Appointment</th><th>Clinic</th><th>Date</th><th>Time</th><th>Service</th><th>Status</th><th>Reason</th></tr></thead><tbody id="appointments-body"></tbody></table></div>
+          </section>
+        </section>
+
+        <section id="view-cme" class="view-panel" role="tabpanel" aria-labelledby="tab-cme" hidden>
+          <section class="report-section full-section">
+            <div class="section-heading section-heading-wrap">
+              <div><p class="section-kicker">PEOPLE · LICENSURE</p><h2>CME compliance</h2></div>
+              <label class="field-control search-control">Find clinician<input id="clinician-search" type="search" placeholder="CLN-000001" autocomplete="off" /></label>
+            </div>
+            <div id="cme-summary" class="cme-summary"></div>
+            <p id="clinician-search-note" class="search-note" aria-live="polite"></p>
+            <div class="table-scroll"><table><thead><tr><th>Clinician</th><th>Role / clinic</th><th>Hours</th><th>Cycle progress</th><th>Days left</th><th>Licence expires</th><th>Licence days</th><th>Status</th></tr></thead><tbody id="cme-body"></tbody></table></div>
+            <div class="cme-footnote"><span class="section-kicker">POLICY</span><span>At risk when completion trails cycle pace by more than 15 percentage points. First licence alert: 90 days.</span></div>
+          </section>
+        </section>
+
+        <footer class="page-footer"><span>HEALTHCORE DIGITAL</span><span>Sample records · No patient data is sent or stored</span></footer>
+      </main>
+    </div>
+  </body>
+</html>
